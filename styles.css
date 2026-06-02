@@ -1,0 +1,96 @@
+        body {
+            background-color: #fef08a; /* Fondo amarillo cálido y suave */
+            color: #1e293b; /* Texto gris muy oscuro para excelente contraste */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #854d0e; /* Título en tono marrón dorado oscuro */
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 4px solid #ca8a04;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 10px;
+        }
+
+        .contenedor-linea {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Estructura básica de la fila */
+        .bloque-pelicula {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            background-color: #ffffff; /* Fondo blanco para que la info resalte limpia */
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* MÉTODO DE DISTRIBUCIÓN: Alternar el orden (Zig-Zag) */
+        /* Las filas pares (2, 4, 6...) invertirán el orden de sus elementos */
+        .bloque-pelicula:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .imagen-zona {
+            flex: 0 0 40%; /* La imagen ocupa exactamente el 40% del ancho */
+            height: 350px;
+            background-color: #e2e8f0;
+        }
+
+        .imagen-zona img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .texto-zona {
+            flex: 0 0 60%; /* El texto ocupa el 60% restante */
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .texto-zona h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.8em;
+            color: #a16207;
+        }
+
+        .texto-zona h3 {
+            margin: 15px 0 5px 0;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            color: #64748b;
+            letter-spacing: 1px;
+        }
+
+        .texto-zona p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Ajuste para celulares: se transforma en una sola columna vertical */
+        @media (max-width: 768px) {
+            .bloque-pelicula, .bloque-pelicula:nth-child(even) {
+                flex-direction: column;
+            }
+            .imagen-zona, .texto-zona {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+            .imagen-zona {
+                height: 300px;
+            }
+        }
